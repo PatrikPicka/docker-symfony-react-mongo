@@ -27,7 +27,7 @@ services:
       - ./app:/var/www/project
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     ports:
-      - '80:80'
+      - '8080:80'
     depends_on:
       - php-service
       - mongo-service
@@ -40,7 +40,7 @@ services:
     image: mongo:latest
     container_name: mongodb-container
     ports:
-      - 27017:27017
+      - '27017:27017'
     environment:
       - MONGO_INITDB_DATABASE=test
       - MONGO_INITDB_ROOT_USERNAME=admin
