@@ -41,9 +41,9 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=0000
-#    volumes:
-#      - ./mongodb/data:/data/db:rw
-#      - ./mongodb/config:/data/configdb:rw
+    volumes:
+      - ./mongodb/data:/data/db:rw
+      - ./mongodb/config:/data/configdb:rw
     networks:
       - bookkeeping_docker_net
 
