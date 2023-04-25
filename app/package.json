@@ -1,0 +1,14 @@
+{
+  "name": "bookkeeping_app",
+  "version": "1.0.0",
+  "description": "Bookkeepink app - React FE",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log('TEST');"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "Patrik Picka",
+  "license": "ISC"
+}
