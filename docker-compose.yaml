@@ -4,7 +4,7 @@ networks:
   bookkeeping_docker_net:
 
 services:
-  php-service:
+  php:
     build:
       context: ./
       dockerfile: ./php/Dockerfile
@@ -14,13 +14,13 @@ services:
     volumes:
       - ./app:/var/www/project
     depends_on:
-      - mongo-service
+      - mongo
     networks:
       bookkeeping_docker_net:
         aliases:
           - php-fpm
 
-  nginx-service:
+  nginx:
     image: nginx
     container_name: nginx-container
     volumes:
@@ -29,14 +29,14 @@ services:
     ports:
       - '8080:80'
     depends_on:
-      - php-service
-      - mongo-service
+      - php
+      - mongodb
     networks:
       bookkeeping_docker_net:
         aliases:
           - nginx-web
 
-  mongo-service:
+  mongodb:
     image: mongo:latest
     container_name: mongodb-container
     ports:
@@ -52,7 +52,7 @@ services:
         aliases:
           - mongodb
 
-  mongo_express-service:
+  mongo-express:
     image: mongo-express:latest
     ports:
       - 8081:8081
@@ -62,7 +62,7 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:0000@mongo:27017/
 
 
-  node-service:
+  node:
     image: node:latest
     user: 'node'
     container_name: node-container
